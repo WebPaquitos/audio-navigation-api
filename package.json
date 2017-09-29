@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/WebPaquitos/audio-navigation-api#readme",
     "dependencies": {
+        "apiai": "^4.0.3",
         "body-parser": "^1.18.2",
         "express": "^4.16.0"
     },
