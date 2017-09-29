@@ -3,7 +3,7 @@ const ApiAiClient = require('apiai');
 const router = express.Router();
 const AiClient = new ApiAiClient('8fd7835cb9ea4a97849eb376652e3e4e');
 
-router.post('/api/ai/request', (req, res) => {
+router.post('/api/request', (req, res) => {
     console.log(req.body);
     const text = req.body.text;
     AiClient.textRequest(text).then(({ result }) => {
