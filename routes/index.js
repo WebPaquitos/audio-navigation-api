@@ -1,8 +1,6 @@
 const express = require('express');
 const ApiAiClient = require('apiai');
 const router = express.Router();
-const CLIENT_ACCESS_TOKEN = '8fd7835cb9ea4a97849eb376652e3e4e';
-const AiClient = new ApiAiClient(CLIENT_ACCESS_TOKEN);
 
 router.get('/alive', (req, res) => {
    res.json({message: 'I am alive'});
@@ -10,6 +8,7 @@ router.get('/alive', (req, res) => {
 
 router.post('/api/request', (req, res) => {
     const text = req.body.text;
+    const AiClient = new ApiAiClient(req.headers['dialog-flow-token']);
     const request = AiClient.textRequest(text, {
         sessionId: `${new Date().getTime()}`,
     });
