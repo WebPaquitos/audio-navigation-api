@@ -27,7 +27,7 @@ router.post('/api/request', (req, res) => {
     request.end();
 });
 
-router.get('/*', (req, res) => {
+router.get('/demo', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
