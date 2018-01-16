@@ -1,6 +1,7 @@
 const express = require('express');
 const ApiAiClient = require('apiai');
 const router = express.Router();
+const path = require('path');
 
 router.get('/alive', (req, res) => {
    res.json({message: 'I am alive'});
@@ -27,11 +28,7 @@ router.post('/api/request', (req, res) => {
 });
 
 router.get('/*', (req, res) => {
-   res.send(`
-        <h1>404</h1>
-        <h2>Not Found</h2>
-        <a href="http://www.luisdev.eu">Try here</a>
-    `);
+    res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
 module.exports = router;

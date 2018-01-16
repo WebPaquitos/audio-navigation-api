@@ -2,11 +2,13 @@ const routes = require('./routes/index');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
 // enable cors
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'build')));
 
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
